@@ -20,10 +20,10 @@ const Page = () => {
                         <Link href="/interview">Strat an Interview</Link>
                     </Button>
                 </div>
-                <Image src ="/covers/robot.png"
+                <Image src ="/covers/robot3.png"
                        alt="robo-dude"
-                       width={400}
-                       height={400}
+                       width={480}
+                       height={480}
                        className="max-sm:hidden" ></Image>
             </section>
             <section className="flex flex-col gap-6 mt-8">

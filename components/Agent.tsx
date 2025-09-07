@@ -1,7 +1,9 @@
-import React from 'react'
+"use client"
+import React, {useState} from 'react'
 import Image from 'next/image';
 import {buttonVariants} from "@/components/ui/button";
 import {cn} from "@/lib/utils";
+import {useRouter} from "next/navigation";
 
 enum CallStatus
 {
@@ -11,23 +13,29 @@ enum CallStatus
     FINISHED = 'FINISHED',
 }
 const Agent = ({userName}:AgentProps) => {
-  const callStatus = CallStatus.ACTIVE;
+  // const callStatus = CallStatus.ACTIVE;
    const isSpeaking = true;
+    const router = useRouter();
+    const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.ACTIVE);//use state
    const messages =
        [
            'What is your name ?',
            'My name is abc , nice to meet you'
        ];
    const lastMessage = messages[messages.length - 1];
+   const handleEnd = () => {
+       setCallStatus(CallStatus.FINISHED);
+       router.push('/sign-up')
+   }
     return (
         <>
             <div className = "call-view">
                 <div className = "card-interviewer">
                     <div className="avatar">
-                        <Image src="/covers/ai-avatar.png"
+                        <Image src="/covers/ai-avatar3.png"
                                alt="vapi"
-                               width={50}
-                               height={44}
+                               width={60}
+                               height={54}
                                className="object-cover" />
                         {isSpeaking && <span className="animate-speak" /> }
                     </div>
@@ -35,7 +43,7 @@ const Agent = ({userName}:AgentProps) => {
                 </div>
                 <div className = "card-border">
                     <div className = "card-interviewer">
-                        <Image src = "/covers/user-avatar.png"
+                        <Image src = "/covers/user-avatar2.png"
                                alt="user-avatar"
                                width={540}
                                height={540}
@@ -54,9 +62,9 @@ const Agent = ({userName}:AgentProps) => {
                 </div>
             )}
             <div className="w-full flex justify-center">
-                {callStatus !== 'ACTIVE' ?(
+                {callStatus !== CallStatus.ACTIVE ?(
                     <button className ="relative btn-call">
-                        <span className = {cn('absolute animate-ping rounded-full opacity=75', callStatus !== 'CONNECTIING'&'hidden')}/>
+                        <span className = {cn('absolute animate-ping rounded-full opacity=75', callStatus !== CallStatus.CONNECTING &&'hidden')}/>
                         <span>
                             {callStatus === 'INACTIVE' || callStatus ==='FINISHED' ? 'Call':'. . .'}
                         </span>
@@ -65,7 +73,7 @@ const Agent = ({userName}:AgentProps) => {
 
 
                 ):(
-                    <button className = "btn-disconnect">
+                    <button className = "btn-disconnect" onClick = {handleEnd}>
                         END
                     </button>
 

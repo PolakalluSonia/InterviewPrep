@@ -12,11 +12,11 @@ import {async} from "@firebase/util";
         <div className="root-layout">
             <nav>
                 <Link href="/" className = "flex items-center gap-2">
-                    <Image src = "/covers/logo.svg"
+                    <Image src = "/covers/logo3w.png"
                            alt="Logo"
-                           width={38}
-                           height={32}></Image>
-                    <h2 className = "text-primary-100">TALK2HIRE</h2>
+                           width={80}
+                           height={50}></Image>
+                    <h2 className = "text-primary-100">INTERVIEWPREP AI</h2>
                 </Link>
             </nav>
             {children}
