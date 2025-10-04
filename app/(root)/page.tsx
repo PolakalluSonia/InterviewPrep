@@ -48,7 +48,7 @@ const Page = async () => {
                             userInterviews ?.map((interview) => (
                                 <InterviewCard {...interview} key = {interview.id} />
                             ))) : (
-                                <p>You have&apos;t taken any interviews yet</p>
+                            <p>You have&apos;t taken any interviews yet</p>
                         )
                     }
                 </div>
@@ -58,16 +58,35 @@ const Page = async () => {
                 <div className="interviews-section">
                     <div className="interviews-section">
                         {
-                        hasUpcomingInterview ? (
-                        latestInterviews?.map((interview) => (
-                        <InterviewCard {...interview} key = {interview.id} />
-                        ))) : (
-                        <p>There are no new interviews available </p>
-                        )
+                            hasUpcomingInterview ? (
+                                latestInterviews?.map((interview) => (
+                                    <InterviewCard {...interview} key = {interview.id} />
+                                ))) : (
+                                <p>There are no new interviews available </p>
+                            )
                         }
                     </div>
                     {/*<p>You have&apos;t taken any interviews yet</p>*/}
                 </div>
+            </section>
+            <section className="flex flex-col gap-6 mt-8" >
+                <h2 >Enhance Your Problem Solving skills by solving questions on these platforms</h2>
+                <div className=" flex flex-wrap gap-3">
+                    <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer">
+                        <Button  className="btn-primary max-sm:w-full">LeetCode</Button>
+                    </a>
+                    <a href="https://www.hackerrank.com/" target="_blank" rel="noopener noreferrer">
+                        <Button  className="btn-primary max-sm:w-full">Hacker Ranker</Button>
+                    </a>
+                    <a href="https://www.codechef.com/" target="_blank" rel="noopener noreferrer">
+                        <Button  className="btn-primary max-sm:w-full">Code chef</Button>
+                    </a>
+                    <a href="https://www.interviewbit.com/technical-interview-questions/" target="_blank" rel="noopener noreferrer">
+                        <Button  className="btn-primary max-sm:w-full">Interviewbit</Button>
+                    </a>
+
+                </div>
+
             </section>
         </>
     )
