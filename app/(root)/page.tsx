@@ -1,11 +1,13 @@
 import React from 'react'
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import StartInterviewButton from '@/components/StartInterviewButton';
 
 import Image from "next/image";
 import {dummyInterviews} from "@/constants";
 import InterviewCard from "@/components/InterviewCard";
-import {getCurrentUser, getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/auth.action";
+import {getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.action";
+import {getCurrentUser} from "@/lib/actions/auth.action";
 
 const Page = async () => {
     const user = await getCurrentUser();
@@ -29,9 +31,11 @@ const Page = async () => {
                     <p className = "text-lg">
                         practice on real interview questions and get feed back
                     </p>
-                    <Button asChild className="btn-primary max-sm:w-full">
-                        <Link href="/interview">Strat an Interview</Link>
-                    </Button>
+                    {/*<Button asChild className="btn-primary max-sm:w-full">*/}
+                    {/*    <Link href="/interview">Strat an Interview</Link>*/}
+                    {/*</Button>*/}
+                    <StartInterviewButton />
+
                 </div>
                 <Image src ="/covers/robot3.png"
                        alt="robo-dude"
