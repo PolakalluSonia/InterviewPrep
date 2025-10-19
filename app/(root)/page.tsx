@@ -38,11 +38,6 @@ const Page = async () => {
                     <div className = "flex flex-row gap-4 max-sm:flex-cole">
                         <StartInterviewButton />
 
-                    {/*    Schecule a inteview*/}
-                        <Button asChild className="btn-primary max-sm:w-full">
-                            <Link href="/schedule-interview">Schedule an Interview</Link>
-                        </Button>
-
                     </div>
 
                 </div>
