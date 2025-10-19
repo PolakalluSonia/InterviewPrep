@@ -24,27 +24,34 @@ export async function createFeedback({ interviewId, userId, transcript }: any) {
 
         // ✅ Ask Gemini to evaluate the candidate's performance
         const { text } = await generateText({
-            model: google("gemini-2.0-flash-001"),
+            model: google("gemini-1.5-pro-latest"),
             prompt: `
-You are a professional **interview evaluator**. 
-You will receive the **candidate's spoken answers** from a mock interview. 
-Evaluate ONLY the candidate's performance (do NOT mention the interviewer).
+You are a **supportive and fair interview evaluator**. 
+You will receive the candidate's spoken answers from a mock interview.
 
-Provide detailed, structured feedback in this JSON format:
+Your goal is to give **balanced feedback** — it should sound **motivating, polite, and professional**, 
+not harsh or discouraging. 
+
+✅ Emphasize their **strengths and positive qualities** first.  
+⚠️ Then, gently highlight **specific mistakes or areas to improve**, phrased as advice, not criticism.  
+⭐ End with an encouraging note about their potential for growth.  
+
+Use this JSON format exactly:
 {
-  "communication": "Evaluate how clearly, confidently, and fluently the candidate spoke.",
-  "technical_knowledge": "Evaluate their understanding of technical concepts and correctness of answers.",
-  "problem_solving": "Evaluate their logical approach and ability to think through problems.",
-  "strengths": ["List of strong points observed during the answers."],
-  "improvements": ["List of areas where the candidate can improve."],
-  "final_assessment": "Short overall summary of performance.",
-  "rating": "Score out of 10 (e.g., 7/10)"
+  "communication": "Evaluate how clearly, confidently, and fluently the candidate spoke. Mention positives first, then suggest specific improvements.",
+  "technical_knowledge": "Comment on their understanding of technical topics. Appreciate what they knew, and explain what to strengthen.",
+  "problem_solving": "Assess their logic and reasoning ability. Mention good attempts, then add improvement tips.",
+  "strengths": ["Positive qualities observed during answers."],
+  "improvements": ["Specific mistakes or habits to correct."],
+  "final_assessment": "Encouraging summary that motivates them to improve.",
+  "rating": "Score out of 10 (balanced and fair, not extreme)."
 }
 
 Here is the candidate's transcript of spoken answers:
 
 ${userResponses}
-            `,
+`
+            ,
         });
 
         console.log("✅ Gemini feedback generated successfully!");

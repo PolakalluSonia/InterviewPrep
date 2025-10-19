@@ -24,6 +24,7 @@ const Page = async () => {
 
     return (
         <>
+            {/*INTERVIEWS*/}
             <section className="card-cta">
                 <div className = "flex flex-col gap-6 max-w-lg">
 
@@ -34,7 +35,15 @@ const Page = async () => {
                     {/*<Button asChild className="btn-primary max-sm:w-full">*/}
                     {/*    <Link href="/interview">Strat an Interview</Link>*/}
                     {/*</Button>*/}
-                    <StartInterviewButton />
+                    <div className = "flex flex-row gap-4 max-sm:flex-cole">
+                        <StartInterviewButton />
+
+                    {/*    Schecule a inteview*/}
+                        <Button asChild className="btn-primary max-sm:w-full">
+                            <Link href="/schedule-interview">Schedule an Interview</Link>
+                        </Button>
+
+                    </div>
 
                 </div>
                 <Image src ="/covers/robot3.png"
@@ -43,35 +52,25 @@ const Page = async () => {
                        height={480}
                        className="max-sm:hidden" ></Image>
             </section>
-            <section className="flex flex-col gap-6 mt-8">
-                <h2>Your Interviews</h2>
+            {/*RESUME ANALYSIS*/}
+            <section className="card-cta">
+                <div className = "flex flex-col gap-6 max-w-lg">
 
-                <div className="interviews-section">
-                    {
-                        hasPastInterview ? (
-                            userInterviews ?.map((interview) => (
-                                <InterviewCard {...interview} key = {interview.id} />
-                            ))) : (
-                            <p>You have&apos;t taken any interviews yet</p>
-                        )
-                    }
+                    <h2>KNOW YOUR ATS SCORE</h2>
+                    <p className = "text-lg">
+                        UPLOAD YOUR RESUME AND KNOW YOUR ATS SCORE
+                    </p>
+                    <Button asChild className="btn-primary max-sm:w-full">
+                        <Link href="/interview">RESUME ANALYSIS</Link>
+                    </Button>
+
+
                 </div>
-            </section>
-            <section className="flex flex-col gap-6 mt-8">
-                <h2>Take an interview </h2>
-                <div className="interviews-section">
-                    <div className="interviews-section">
-                        {
-                            hasUpcomingInterview ? (
-                                latestInterviews?.map((interview) => (
-                                    <InterviewCard {...interview} key = {interview.id} />
-                                ))) : (
-                                <p>There are no new interviews available </p>
-                            )
-                        }
-                    </div>
-                    {/*<p>You have&apos;t taken any interviews yet</p>*/}
-                </div>
+                <Image src ="/covers/ats3.png"
+                       alt="ats-score-cover"
+                       width={480}
+                       height={480}
+                       className="max-sm:hidden" ></Image>
             </section>
             <section className="flex flex-col gap-6 mt-8" >
                 <h2 >Enhance Your Problem Solving skills by solving questions on these platforms</h2>
