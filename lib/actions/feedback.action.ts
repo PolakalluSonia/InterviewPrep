@@ -24,7 +24,7 @@ export async function createFeedback({ interviewId, userId, transcript }: any) {
 
         // ✅ Ask Gemini to evaluate the candidate's performance
         const { text } = await generateText({
-            model: google("gemini-1.5-pro-latest"),
+            model: google("gemini-2.0-flash-001"),
             prompt: `
 You are a **supportive and fair interview evaluator**. 
 You will receive the candidate's spoken answers from a mock interview.
@@ -51,7 +51,7 @@ Here is the candidate's transcript of spoken answers:
 
 ${userResponses}
 `
-            ,
+
         });
 
         console.log("✅ Gemini feedback generated successfully!");
@@ -74,3 +74,5 @@ ${userResponses}
         return { success: false, error: String(error) };
     }
 }
+
+
