@@ -2,6 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
+
+// import ReactMarkdown from "react-markdown";
+// import remarkGfm from "remark-gfm";
+// import rehypeHighlight from "rehype-highlight";
+
+
 interface Message {
     role: "user" | "assistant";
     text: string;
@@ -57,14 +63,14 @@ export default function ChatPage() {
         <div className="flex flex-col min-h-screen bg-black text-white">
             {/* Header */}
             <div className="p-6 border-b border-gray-800">
-                <h1 className="text-3xl font-bold text-center">Gemini Chatbot 🤖</h1>
+                <h1 className="text-2xl font-bold text-center">AI-INTERVIEWER CHAT BOT</h1>
             </div>
 
             {/* Chat Window */}
             <div className="flex-1 overflow-y-auto px-6 py-4 bg-gray-950">
                 {messages.length === 0 && (
                     <div className="text-center text-gray-400 mt-20">
-                        💬 Start chatting with Gemini about coding or general topics!
+                        💬 Start chatting with AI-INTERVIEWER about coding or general topics!
                     </div>
                 )}
 
@@ -76,14 +82,33 @@ export default function ChatPage() {
                         }`}
                     >
                         <div
+
                             className={`max-w-[75%] px-4 py-2 rounded-2xl ${
                                 msg.role === "user"
-                                    ? "bg-purple-600 text-white"
-                                    : "bg-gray-800 text-gray-100"
+                                    ? "bg-violet-400 text-white"
+                                    : "bg-gray-900 text-gray-100"
                             }`}
                         >
                             {msg.text}
                         </div>
+
+
+                        {/*<div*/}
+                        {/*    className={`max-w-[75%] px-4 py-2 rounded-2xl whitespace-pre-wrap ${*/}
+                        {/*        msg.role === "user"*/}
+                        {/*            ? "bg-purple-600 text-white"*/}
+                        {/*            : "bg-gray-800 text-gray-100"*/}
+                        {/*    }`}*/}
+                        {/*>*/}
+                        {/*    <ReactMarkdown*/}
+                        {/*        remarkPlugins={[remarkGfm]}*/}
+                        {/*        rehypePlugins={[rehypeHighlight]}*/}
+                        {/*        className="prose prose-invert"*/}
+                        {/*    >*/}
+                        {/*        {msg.text}*/}
+                        {/*    </ReactMarkdown>*/}
+                        {/*</div>*/}
+
                     </div>
                 ))}
 
@@ -114,7 +139,7 @@ export default function ChatPage() {
                 />
                 <button
                     onClick={sendMessage}
-                    className="bg-purple-600 hover:bg-purple-700 px-5 py-2.5 rounded-lg font-semibold"
+                    className="bg-violet-500 hover:bg-violet-600 px-5 py-2.5 rounded-lg font-semibold"
                 >
                     Send
                 </button>

@@ -56,12 +56,14 @@ const Page = async () => {
                         UPLOAD YOUR RESUME AND KNOW YOUR ATS SCORE
                     </p>
                     <Button asChild className="btn-primary max-sm:w-full">
-                        <Link href="/interview">RESUME ANALYSIS</Link>
+                        <Link href="https://ai-resume-analyser-steel-nine.vercel.app/\"
+                              rel="noopener noreferrer"
+                        >RESUME ANALYSIS</Link>
                     </Button>
 
 
                 </div>
-                <Image src ="/covers/ats3.png"
+                <Image src ="/covers/ats2.png"
                        alt="ats-score-cover"
                        width={480}
                        height={480}
