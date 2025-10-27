@@ -76,9 +76,9 @@ export default function FeedbackPage() {
     // No feedback
     if (!feedback) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
-                <div className="max-w-2xl w-full shadow-lg rounded-2xl bg-white border border-gray-200 p-6 text-center">
-                    <h1 className="text-2xl font-bold mb-4 text-gray-800">Interview Feedback</h1>
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-700 p-6">
+                <div className="max-w-2xl w-full shadow-lg rounded-2xl bg-gray-700 border border-gray-700 p-6 text-center">
+                    <h1 className="text-2xl font-bold mb-4 text-gray-700">Interview Feedback</h1>
                     <p className="text-gray-600">No feedback found for this interview.</p>
                     <button
                         onClick={() => (window.location.href = "/")}
@@ -93,45 +93,45 @@ export default function FeedbackPage() {
 
     // Render feedback content
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
-            <div className="max-w-3xl w-full shadow-lg rounded-2xl bg-white border border-gray-200 p-8">
-                <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">🧠 Interview Feedback</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 p-8">
+            <div className="max-w-3xl w-full shadow-lg rounded-2xl bg-gray-800 border border-gray-800 p-8">
+                <h1 className="text-3xl font-bold text-center mb-8 text-slate-100"> Interview Feedback</h1>
 
                 {feedback.communication && (
-                    <Section title="🗣 Communication" text={feedback.communication} color="text-purple-700" />
+                    <Section title="🗣 Communication" text={feedback.communication} color="text-violet-400" />
                 )}
 
                 {feedback.technical_knowledge && (
-                    <Section title="💻 Technical Knowledge" text={feedback.technical_knowledge} color="text-blue-700" />
+                    <Section title="💻 Technical Knowledge" text={feedback.technical_knowledge} color="text-blue-400" />
                 )}
 
                 {feedback.problem_solving && (
-                    <Section title="🧩 Problem Solving" text={feedback.problem_solving} color="text-green-700" />
+                    <Section title="🧩 Problem Solving" text={feedback.problem_solving} color="text-orange-400" />
                 )}
 
                 {feedback.strengths && (
-                    <ListSection title="💪 Strengths" items={feedback.strengths} color="text-green-600" />
+                    <ListSection title="💪 Strengths" items={feedback.strengths} color="text-green-400" />
                 )}
 
                 {feedback.improvements && (
-                    <ListSection title="⚠️ Areas for Improvement" items={feedback.improvements} color="text-red-600" />
+                    <ListSection title="⚠️ Areas for Improvement" items={feedback.improvements} color="text-red-400" />
                 )}
 
                 {feedback.final_assessment && (
-                    <Section title="🧠 Final Assessment" text={feedback.final_assessment} color="text-indigo-700" />
+                    <Section title="🧠 Final Assessment" text={feedback.final_assessment} color="text-indigo-400" />
                 )}
 
                 {feedback.rating && (
                     <div className="text-center mt-8">
-                        <span className="text-lg font-semibold text-gray-800">⭐ Overall Rating: </span>
-                        <span className="text-xl font-bold text-yellow-500">{feedback.rating}</span>
+                        <span className="text-lg font-semibold text-slate-100">⭐ Overall Rating: </span>
+                        <span className="text-xl font-bold text-green-400">{feedback.rating}</span>
                     </div>
                 )}
 
                 <div className="flex justify-center mt-10">
                     <button
                         onClick={() => (window.location.href = "/")}
-                        className="px-5 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700"
+                        className="px-5 py-2 bg-violet-500 text-slate-100 font-medium rounded-md hover:bg-violet-400"
                     >
                         Back to Home
                     </button>
@@ -145,7 +145,7 @@ function Section({ title, text, color }: any) {
     return (
         <div className="mb-6">
             <h2 className={`text-xl font-semibold mb-3 ${color}`}>{title}</h2>
-            <p className="text-gray-700 leading-relaxed">{text}</p>
+            <p className="text-gray-200 leading-relaxed">{text}</p>
         </div>
     );
 }
